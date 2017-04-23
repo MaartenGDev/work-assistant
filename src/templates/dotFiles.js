@@ -3,13 +3,14 @@ import path from 'path';
 import process from 'process';
 
 const types = {
-    ESLINT: 'eslint'
+    ESLINT: 'eslint',
+    NPM: 'npm',
+    BABEL: 'babel'
 };
-
 
 export default (templateName) => {
     const fileName = getFileNameForType(templateName);
-    const content = getTemplateForName(fileName);
+    const content = getTemplateContentForTemplateFile(fileName);
 
     const currentDirectory = process.cwd();
 
@@ -26,10 +27,14 @@ const createFileFromTemplate = (fileName, content) => {
 const getFileNameForType = (type) => {
     if(type == types.ESLINT){
         return '.eslintrc.js';
+    }else if(type == types.NPM){
+        return '.gitignore';
+    }else if(type == types.BABEL){
+        return '.babelrc';
     }
 };
 
-const getTemplateForName = (fileName) => {
+const getTemplateContentForTemplateFile = (fileName) => {
     const templatesDir = path.join(__dirname, '/dotFiles/');
 
     return fs.readFileSync(`${templatesDir}${fileName}`);
