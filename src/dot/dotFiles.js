@@ -35,7 +35,7 @@ const getFileNameForType = (type) => {
 };
 
 const getTemplateContentForTemplateFile = (fileName) => {
-    const templatesDir = path.join(__dirname, '/dotFiles/');
+    const templatesDir = path.join(__dirname, '/templates/');
 
     return fs.readFileSync(`${templatesDir}${fileName}`);
 };

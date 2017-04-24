@@ -3,7 +3,7 @@ import process from 'process';
 import Program from 'commander';
 import OpenRepository from './src/git/openRepo';
 import CheckStatusForWebsites from './src/web/webStatus';
-import generateDotFile from './src/templates/dotFiles';
+import GenerateDotFile from './src/dot/dotFiles';
 
 Program
     .command('gh open')
@@ -14,8 +14,8 @@ Program
     .action(CheckStatusForWebsites);
 
 Program
-    .command('template [name]')
-    .action(generateDotFile);
+    .command('dot [name]')
+    .action(GenerateDotFile);
 
 Program.parse(process.argv);
 

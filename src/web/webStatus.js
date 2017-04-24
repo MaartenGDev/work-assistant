@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-const sites = ['https://maartendev.me', 'https://jobs.maartendev.me/'];
+const sites = ['https://maartendev.me', 'https://jobs.maartendev.me/','https://httpbin.org/status/500'];
 
 const checkForHttpOk = async (uri) => {
     const response = await fetch(uri);
